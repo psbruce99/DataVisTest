@@ -19,7 +19,12 @@
 </head>
 <body>
 
-<canvas id="myCanvas" width="780" height="320"></canvas>
+<canvas id="myCanvas" width="800" height="800"></canvas>
+
+
+<div style="display:none;">
+  <img id="source" src="https://mdn.mozillademos.org/files/5397/rhino.jpg"
+       width="300" height="227">
 
 
 
@@ -27,6 +32,9 @@
 
 
 <script>
+
+var image = document.getElementById.("source");
+
 
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
@@ -61,12 +69,29 @@ function keyUpHandler(e) {
     }
 }
 
+
+// stary mic
 function drawBall() {
     ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI*2);
     ctx.fillStyle = "#0095DD";
     ctx.fill();
     ctx.closePath();
+
+
+// nakres auta
+
+function drawCar1() {
+
+	ctx.beginPath();
+
+	ctx.drawImage(image, 33, 71, 104, 124, 21, 20, 87, 104);
+
+
+	ctx.closePath();
+}
+
+
 }
 function drawPaddle() {
     ctx.beginPath();
@@ -78,7 +103,7 @@ function drawPaddle() {
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawBall();
+   // drawBall();
     drawPaddle();
     
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
